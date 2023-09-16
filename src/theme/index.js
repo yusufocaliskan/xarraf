@@ -4,11 +4,13 @@ import {DefaultTheme} from '@react-navigation/native';
 export const light_colors = {
   ...DefaultTheme,
   colors: {
+    background: '#fff',
     black: '#1A1D27',
     blue_text: '#5D6D8C',
     gray_text: '#86888D',
     gray_bg: '#E7EAEB',
     green: '#54E8B2',
+    gray_input: '#E7EAEB',
 
     primary: 'green',
   },
@@ -18,6 +20,7 @@ export const light_colors = {
 export const dark_colors = {
   ...DefaultTheme,
   colors: {
+    background: '#fff',
     black: '#fff',
     primary: 'blue',
   },

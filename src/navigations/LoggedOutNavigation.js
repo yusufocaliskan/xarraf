@@ -2,6 +2,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import routes from '../routes';
 import {Welcome} from '../screens';
+import Login from '../screens/Auth/Login';
 
 const Stack = createNativeStackNavigator();
 const LoggedOutNavigation = ({navigationDefaultOptions, theme}) => {
@@ -10,7 +11,8 @@ const LoggedOutNavigation = ({navigationDefaultOptions, theme}) => {
       <Stack.Navigator
         initialRouteName={routes.Welcome}
         screenOptions={navigationDefaultOptions}>
-        <Stack.Screen component={Welcome} name={routes.Welcome} />
+        <Stack.Screen name={routes.Welcome} component={Welcome} />
+        <Stack.Screen name={routes.Login} component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );

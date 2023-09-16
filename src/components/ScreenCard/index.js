@@ -11,42 +11,26 @@ import {
 // import Header from '../components/Header/Header';
 // import {useDispatch, useSelector} from 'react-redux';
 // import {BlurView} from '@react-native-community/blur';
-import {hp, wp} from '../utils/scaler';
+import {hp, wp} from '../../utils/scaler';
 // import ErrorModal from '../components/Error/ErrorModal';
 // import TwcLoading from '../components/TwcCard/TwcLoading';
 
 // import useInActivityTimer from '../hooks/useInActivityTimer';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {customerLogout, setIsApplicationLocked} from '../store/customers';
-import routes from '../routes/';
+import routes from '../../routes';
+import ScreenHeader from './ScreenHeader';
 // import ApplicationVersionDetails from '../components/AppVersionDisplayer/ApplicationVersionDetails';
 // import AppVersionDisplayer from '../components/AppVersionDisplayer';
 
 const ScreenCard = ({
-  showUserAvatar,
   children,
-  noHeader,
-  displayProgressBar,
-  step,
-  totalSteps,
-  displayLangSelector,
   noPadding,
-  style,
-  isCountDown,
-  menuBar,
   noScrollView,
   scrollViewStyle,
-  displayNotification,
-  displayLogo,
-  dontShowGoBackIcon,
   FooterRender,
-  displayPremiumIcons,
-
-  errors,
-  setErrors,
-  isLoading,
-  notificationIconColor,
-  displayVersionText = false,
+  headerContainerStyle,
+  displayHeeader = true,
 }) => {
   // const setting = useSelector(state => state.setting);
   // const dispatch = useDispatch();
@@ -93,16 +77,13 @@ const ScreenCard = ({
 
   return (
     <>
-      {isLoading && <TwcLoading />}
+      {/* {isLoading && <TwcLoading />} */}
 
-      <SafeAreaView style={[{flex: 1}, style]}>
-        {!noHeader && (
-          <View
-            style={[
-              {position: 'relative', zIndex: 777},
-              noScrollView && {paddingBottom: 25},
-            ]}>
-            {/* <Header
+      <SafeAreaView style={{flex: 1}}>
+        {displayHeeader && (
+          <ScreenHeader containerStyle={headerContainerStyle} />
+        )}
+        {/* <Header
               dontShowGoBackIcon={dontShowGoBackIcon}
               displayLogo={displayLogo}
               displayNotification={displayNotification}
@@ -116,8 +97,6 @@ const ScreenCard = ({
               menuBar={menuBar}
               displayPremiumIcons={displayPremiumIcons}
             /> */}
-          </View>
-        )}
 
         <KeyboardAvoidingView
           style={{flex: 1}}
@@ -166,27 +145,5 @@ const ScreenCard = ({
   );
 };
 
-const styles = StyleSheet.create({
-  blurOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: wp(100),
-    height: hp(100),
-    zIndex: 999,
-  },
-  version: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flex: 1,
-    marginBottom: 10,
-  },
-  version: {
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 20,
-  },
-});
+const styles = StyleSheet.create({});
 export default ScreenCard;

@@ -1,31 +1,27 @@
-import {useRoute, useTheme} from '@react-navigation/native';
+import {useNavigation, useRoute, useTheme} from '@react-navigation/native';
 import {StyleSheet, Text, View} from 'react-native';
 
-import ScreenCard from '../ScreenCard';
+import ScreenCard from '../../components/ScreenCard';
 import Logo from '../../components/Logo';
 import {themeColor} from '../../navigations/AppNavigator';
 import CustomButton from '../../components/CustomButton';
+import ScreenTitle from '../../components/ScreenCard/ScreenTitle';
 
 const Welcome = ({test}) => {
   const {colors} = useTheme();
+  const navigation = useNavigation();
 
   return (
-    <ScreenCard>
+    <ScreenCard displayHeeader={false}>
       <View style={styles.logoView}>
         <Logo />
       </View>
-      <View style={styles.greedingView}>
-        <Text style={[styles.greedingHeaderTitleText, {color: colors.black}]}>
-          Welcome to the Xarraf
-        </Text>
-        <Text
-          style={[
-            styles.greedingHeaderDescriptionText,
-            {color: colors.blue_text},
-          ]}>
-          Join the future of xarraf crypto trading for corporates.
-        </Text>
-      </View>
+      <ScreenTitle
+        title="Welcome to the Xarraf"
+        description="Join the future of xarraf crypto trading for corporates."
+        containerStyle={{marginTop: '10%'}}
+      />
+
       <View style={styles.buttonGroup}>
         <View style={styles.buttonView}>
           <CustomButton text="Get Started" onPress={() => console.log("'hi")} />
@@ -33,7 +29,7 @@ const Welcome = ({test}) => {
         <View style={styles.buttonView}>
           <CustomButton
             text="I already have account"
-            onPress={() => console.log("'hi")}
+            onPress={() => navigation.push(routes.Login)}
             isPlain={true}
           />
         </View>

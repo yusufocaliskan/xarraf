@@ -30,6 +30,7 @@ const CustomButton = ({
         <Text
           style={[
             styles.textButtonTextStyle,
+            {color: colors.green},
             textColor && {color: textColor},
             textStyle,
           ]}>
@@ -47,7 +48,7 @@ const CustomButton = ({
           {
             display: 'flex',
             width: '100%',
-            height: Platform.OS == 'android' ? hp(8) : hp(7.5),
+            height: Platform.OS == 'android' ? hp(7) : hp(6.5),
             borderRadius: 10,
             backgroundColor: disabled
               ? colors.gray_bg
@@ -71,7 +72,6 @@ const CustomButton = ({
             style={[
               styles.buttonText,
               {color: colors.black},
-
               textColor && {color: textColor},
               textStyle,
               disabled && {color: colors.gray_text},
@@ -91,7 +91,7 @@ const CustomButton = ({
         {
           display: 'flex',
           width: '100%',
-          height: Platform.OS == 'android' ? hp(8) : hp(7.5),
+          height: Platform.OS == 'android' ? hp(7) : hp(6.5),
           borderRadius: 15,
           backgroundColor: disabled
             ? colors.gray_bg
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     width: 23,
   },
   buttonText: {
-    fontSize: hp(2.3),
+    fontSize: hp(2),
     textAlign: 'center',
     //...fonts.bold,
   },
