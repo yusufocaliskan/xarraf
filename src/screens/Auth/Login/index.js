@@ -4,13 +4,26 @@ import CustomButton from '../../../components/CustomButton';
 import ScreenCard from '../../../components/ScreenCard';
 import ScreenTitle from '../../../components/ScreenCard/ScreenTitle';
 import FormTextInput from '../../../components/Form/FromTextInput';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import DiverderWithText from '../../../components/Divider/DiverderWithText';
+import GoogleIcon from '../../../components/Icons/GoogleIcon';
+import FacebookIcon from '../../../components/Icons/FacebookIcon';
+import GitHub from '../../../components/Icons/GitHub';
 
 const Login = ({test}) => {
   const {colors} = useTheme();
   const navigation = useNavigation();
   const [getEmail, setEmail] = useState();
   const [getPassword, setPassword] = useState();
+  const [isDisabled, setIsDisabled] = useState();
+
+  useEffect(() => {
+    if (getEmail && getPassword) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [getEmail, getPassword]);
   return (
     <ScreenCard
       headerContainerStyle={{
@@ -43,7 +56,7 @@ const Login = ({test}) => {
             disabled={false}
             isTextButton={true}
             textStyle={{
-              textDecorationLine: true,
+              textDecorationLine: 'underline',
               fontSize: 13,
             }}
           />
@@ -53,7 +66,7 @@ const Login = ({test}) => {
           <CustomButton
             text="Login"
             //onPress={() => navigation.push(routes.Login)}
-            disabled={false}
+            disabled={isDisabled}
           />
         </View>
 
@@ -66,6 +79,34 @@ const Login = ({test}) => {
             //onPress={() => navigation.push(routes.Login)}
             disabled={false}
             isTextButton={true}
+          />
+        </View>
+      </View>
+      <View style={[styles.divider]}>
+        <DiverderWithText text="Or Sign up with" />
+      </View>
+      <View style={styles.socialAuthButtonsWrapper}>
+        <View style={styles.socialAuthButtons}>
+          <CustomButton
+            //onPress={() => navigation.push(routes.Login)}
+            disabled={false}
+            isIconButton={true}
+            iconButtonStyle={{backgroundColor: colors.black}}
+            Icon={() => <GoogleIcon width={45} height={45} color="white" />}
+          />
+          <CustomButton
+            //onPress={() => navigation.push(routes.Login)}
+            disabled={false}
+            isIconButton={true}
+            iconButtonStyle={{backgroundColor: colors.black}}
+            Icon={() => <FacebookIcon width={39} height={39} color="white" />}
+          />
+          <CustomButton
+            //onPress={() => navigation.push(routes.Login)}
+            disabled={false}
+            isIconButton={true}
+            iconButtonStyle={{backgroundColor: colors.black}}
+            Icon={() => <GitHub width={45} height={45} color="white" />}
           />
         </View>
       </View>
@@ -105,6 +146,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   loginButtonView: {
+    marginVertical: 20,
+  },
+  socialAuthButtonsWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  socialAuthButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '50%',
+  },
+  divider: {
     marginVertical: 20,
   },
 });

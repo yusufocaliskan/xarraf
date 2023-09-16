@@ -111,7 +111,7 @@ const ScreenCard = ({
                   {
                     flexGrow: 1,
                   },
-                  !noPadding && {paddingHorizontal: 15},
+                  !noPadding && {paddingHorizontal: 25},
                 ]}>
                 {children}
                 {/* <View style={styles.version}>

@@ -12,11 +12,11 @@ const CustomButton = ({
   onPress,
   style,
   disabled,
-  gradient,
   textStyle,
   isTextButton,
-  textButtonTextStyle,
+  isIconButton,
   isPlain,
+  iconButtonStyle,
 }) => {
   //  const appStore = useSelector(state => state.app);
   const {colors} = useTheme();
@@ -36,6 +36,16 @@ const CustomButton = ({
           ]}>
           {text}
         </Text>
+      </TouchableOpacity>
+    );
+  }
+  if (isIconButton) {
+    return (
+      <TouchableOpacity
+        disabled={disabled}
+        onPress={onPress}
+        style={[styles.iconButtonView, iconButtonStyle]}>
+        <Icon />
       </TouchableOpacity>
     );
   }
@@ -147,6 +157,13 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     display: 'flex',
+  },
+  iconButtonView: {
+    width: 45,
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
   },
 });
 
