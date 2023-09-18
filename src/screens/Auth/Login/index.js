@@ -10,6 +10,7 @@ import GoogleIcon from '../../../components/Icons/GoogleIcon';
 import FacebookIcon from '../../../components/Icons/FacebookIcon';
 import GitHub from '../../../components/Icons/GitHub';
 import routes from '../../../routes';
+import {useTranslation} from 'react-i18next';
 
 const Login = ({test}) => {
   const {colors} = useTheme();
@@ -17,6 +18,7 @@ const Login = ({test}) => {
   const [getEmail, setEmail] = useState();
   const [getPassword, setPassword] = useState();
   const [isDisabled, setIsDisabled] = useState();
+  const {t} = useTranslation();
 
   useEffect(() => {
     if (getEmail && getPassword) {
@@ -31,12 +33,15 @@ const Login = ({test}) => {
         marginTop: 20,
         marginBottom: 20,
       }}>
-      <ScreenTitle title="Login To Your Account" description="Wellcome Back!" />
+      <ScreenTitle
+        title={t('login_screen_title')}
+        description={t('login_screen_description')}
+      />
       <View style={styles.inputGroups}>
         <View style={styles.inputElement}>
           <FormTextInput
-            placeholder="Enter your name here"
-            name="Email"
+            placeholder={t('email_input_placeholder')}
+            name={t('email')}
             value={getEmail}
             setValue={setEmail}
           />
@@ -44,15 +49,15 @@ const Login = ({test}) => {
         <View style={styles.inputElement}>
           <FormTextInput
             secure={true}
-            placeholder="Enter password name here"
-            name="Password"
+            placeholder={t('password_input_placeholder')}
+            name={t('password')}
             value={getPassword}
             setValue={setPassword}
           />
         </View>
         <View style={[styles.inputElement, styles.forgotPasswordButtonView]}>
           <CustomButton
-            text="Forgot Password?"
+            text={t('forgot_password')}
             //onPress={() => navigation.push(routes.Login)}
             disabled={false}
             isTextButton={true}
@@ -78,7 +83,7 @@ const Login = ({test}) => {
             Don't have an account?
           </Text>
           <CustomButton
-            text="Register"
+            text={t('register')}
             //onPress={() => navigation.push(routes.Login)}
             disabled={false}
             isTextButton={true}
@@ -86,7 +91,7 @@ const Login = ({test}) => {
         </View>
       </View>
       <View style={[styles.divider]}>
-        <DiverderWithText text="Or Sign up with" />
+        <DiverderWithText text={t('or_sigup_with')} />
       </View>
       <View style={styles.socialAuthButtonsWrapper}>
         <View style={styles.socialAuthButtons}>

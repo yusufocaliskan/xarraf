@@ -10,7 +10,7 @@ const LoggedOutNavigation = ({navigationDefaultOptions, theme}) => {
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
-        initialRouteName={routes.auth.LoginWithVerificationCode}
+        initialRouteName={routes.Welcome}
         screenOptions={navigationDefaultOptions}>
         <Stack.Screen name={routes.common.Welcome} component={Welcome} />
         <Stack.Screen name={routes.auth.Login} component={Login} />

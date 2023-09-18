@@ -4,12 +4,15 @@ import ScreenCard from '../../../components/ScreenCard';
 import {useEffect, useRef, useState} from 'react';
 import Verification from '../../../components/Verification';
 import ScreenTitle from '../../../components/ScreenCard/ScreenTitle';
+import {useSelector} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 const LoginWithVerificationCode = () => {
   const {colors} = useTheme();
   const navigation = useNavigation();
   const [getCode, setCode] = useState([]);
   const [isDisabled, setIsDisabled] = useState();
+  const {t} = useTranslation();
   const safeAreaRef = useRef();
 
   useEffect(() => {
@@ -28,8 +31,8 @@ const LoginWithVerificationCode = () => {
         marginBottom: 20,
       }}>
       <ScreenTitle
-        title="Verify Your Code"
-        description="Enter the code we sent to your mail."
+        title={t('verification_screen_title')}
+        description={t('verification_screen_description')}
         containerStyle={{marginBottom: 30}}
       />
       <Verification

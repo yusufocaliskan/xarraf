@@ -1,0 +1,26 @@
+{
+  "reset_now": "Reset Now",
+  "didnt_get_the_code": "Didn't get the code?",
+  "cancel": "Cancel",
+  "continue": "Continue",
+
+  "verification_screen_title": "Verify Your Code",
+  "verification_screen_description": "Enter the code we sent to your mail.",
+
+  "email": "E-mail",
+  "email_input_placeholder": "Enter your e-mail here",
+
+  "password": "Password",
+  "password_input_placeholder": "Enter password name here",
+  "forgot_password": "Forgot Password",
+
+  "register": "Register",
+  "or_sigup_with": "Or Sign up with",
+
+  "login_screen_title": "Login To Your Account",
+  "login_screen_description": "Wellcome Back!",
+  "welcome_screen_title": "Welcome to the Xarraf",
+  "welcome_screen_description": "Join the future of xarraf crypto trading for corporates.",
+  "get_started": "Get Started",
+  "i_have_already_an_account": "I already have an account"
+}

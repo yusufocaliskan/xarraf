@@ -6,29 +6,33 @@ import Logo from '../../components/Logo';
 import {themeColor} from '../../navigations/AppNavigator';
 import CustomButton from '../../components/CustomButton';
 import ScreenTitle from '../../components/ScreenCard/ScreenTitle';
+import {useTranslation} from 'react-i18next';
 
 const Welcome = ({test}) => {
   const {colors} = useTheme();
   const navigation = useNavigation();
-
+  const {t} = useTranslation();
   return (
     <ScreenCard displayHeeader={false}>
       <View style={styles.logoView}>
         <Logo />
       </View>
       <ScreenTitle
-        title="Welcome to the Xarraf"
-        description="Join the future of xarraf crypto trading for corporates."
+        title={t('welcome_screen_title')}
+        description={t('welcome_screen_description')}
         containerStyle={{marginTop: '10%'}}
       />
 
       <View style={styles.buttonGroup}>
         <View style={styles.buttonView}>
-          <CustomButton text="Get Started" onPress={() => console.log("'hi")} />
+          <CustomButton
+            text={t('get_started')}
+            onPress={() => console.log("'hi")}
+          />
         </View>
         <View style={styles.buttonView}>
           <CustomButton
-            text="I already have account"
+            text={t('i_have_already_an_account')}
             onPress={() => navigation.push(routes.auth.Login)}
             isPlain={true}
           />

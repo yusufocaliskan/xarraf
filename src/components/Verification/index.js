@@ -18,6 +18,7 @@ import {countDownTime} from '../../constants';
 import VerificationInputGroups from '../Form/VerificationInputs/VerificationInputGroups';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import routes from '../../routes';
+import {useTranslation} from 'react-i18next';
 
 //import {checkIfVerificationCodeIsCorrect} from '../../store/customers/Thunks';
 
@@ -44,6 +45,7 @@ const Verification = ({
   // const dispatch = useDispatch();
   const navigation = useNavigation();
   const {colors} = useTheme();
+  const {t} = useTranslation();
   useEffect(() => {
     if (code.length >= 6) {
       setIsDisabled(false);
@@ -94,14 +96,13 @@ const Verification = ({
           <TouchableOpacity
             style={styles.forgotPasswordButton}
             onPress={onPressResentCodeButton}>
-            {/* <Text>{t('didnt_get_the_code')}</Text> */}
             <Text style={{color: colors.gray_text, fontSize: 16}}>
-              Didn't get the code?
+              {t('didnt_get_the_code')}
             </Text>
+
             <Text
               style={[styles.forgotPasswordButtonText, {color: colors.green}]}>
-              {/* {t('resend_now')} */}
-              Reset Now
+              {t('resend_now')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -115,8 +116,7 @@ const Verification = ({
           }}>
           <CustomButton
             onPress={handleOnPressCancel}
-            //text={t('cancel')}
-            text={'Cancel'}
+            text={t('cancel')}
             textColor={colors.dark_gray}
             isTextButton={true}
           />
@@ -140,9 +140,7 @@ const Verification = ({
         <View style={styles.submitButtonView}>
           <CustomButton
             onPress={onPressCountinue}
-            text={'Continue'}
-            //text={t('continue')}
-            // Icon={CheckIcon}
+            text={t('continue')}
             color={colors.red}
             textColor="white"
             gradient={!isDisabled}
