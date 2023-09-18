@@ -1,4 +1,10 @@
 export default routes = {
-  Welcome: 'Welcome',
-  Login: 'Login',
+  common: {
+    Welcome: 'Welcome',
+  },
+  auth: {
+    Login: 'Login',
+    LoginWithVerificationCode: 'LoginWithVerificationCode',
+    Register: 'Register',
+  },
 };

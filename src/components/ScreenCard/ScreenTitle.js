@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   },
   greedingHeaderTitleText: {
     fontSize: 24,
+    fontWeight: '700',
   },
   greedingHeaderDescriptionText: {
     marginTop: 10,

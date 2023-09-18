@@ -29,7 +29,7 @@ const Welcome = ({test}) => {
         <View style={styles.buttonView}>
           <CustomButton
             text="I already have account"
-            onPress={() => navigation.push(routes.Login)}
+            onPress={() => navigation.push(routes.auth.Login)}
             isPlain={true}
           />
         </View>

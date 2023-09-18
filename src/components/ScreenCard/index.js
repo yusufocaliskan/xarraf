@@ -31,6 +31,7 @@ const ScreenCard = ({
   FooterRender,
   headerContainerStyle,
   displayHeeader = true,
+  safeAreaRef,
 }) => {
   // const setting = useSelector(state => state.setting);
   // const dispatch = useDispatch();
@@ -79,7 +80,7 @@ const ScreenCard = ({
     <>
       {/* {isLoading && <TwcLoading />} */}
 
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}} ref={safeAreaRef}>
         {displayHeeader && (
           <ScreenHeader containerStyle={headerContainerStyle} />
         )}

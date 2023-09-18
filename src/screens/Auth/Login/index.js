@@ -9,6 +9,7 @@ import DiverderWithText from '../../../components/Divider/DiverderWithText';
 import GoogleIcon from '../../../components/Icons/GoogleIcon';
 import FacebookIcon from '../../../components/Icons/FacebookIcon';
 import GitHub from '../../../components/Icons/GitHub';
+import routes from '../../../routes';
 
 const Login = ({test}) => {
   const {colors} = useTheme();
@@ -65,7 +66,9 @@ const Login = ({test}) => {
         <View style={[styles.inputElement, styles.loginButtonView]}>
           <CustomButton
             text="Login"
-            //onPress={() => navigation.push(routes.Login)}
+            onPress={() =>
+              navigation.push(routes.auth.LoginWithVerificationCode)
+            }
             disabled={isDisabled}
           />
         </View>
